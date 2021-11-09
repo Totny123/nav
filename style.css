@@ -21,6 +21,10 @@ a {
 body {
   background-color: #eee;
   color: #1d1d1f;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .search-header {
   display: flex;
@@ -40,7 +44,8 @@ body {
   width: 100px;
   height: 40px;
   font-size: 18px;
-  border: 1px solid #ddd;
+  border: 1px solid #0099ff;
+  outline: none;
   border-radius: 4px;
   color: #fff;
   background-color: #0099ff;
@@ -60,8 +65,30 @@ body {
   margin-right: -25px;
 }
 .site-list li {
+  position: relative;
   margin-right: 25px;
   margin-bottom: 25px;
+}
+.site-list li:hover .delete {
+  visibility: visible;
+}
+.site-list li .delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+}
+.site-list li .delete:hover {
+  background-color: #ddd;
+  cursor: pointer;
 }
 .site-wrapper {
   display: flex;
@@ -102,6 +129,8 @@ body {
 }
 @media screen and (max-width: 500px) {
   body {
+    background-color: #eee;
+    color: #1d1d1f;
     padding: 10px;
   }
   .search-header {
@@ -130,5 +159,8 @@ body {
   .add-wrapper {
     width: 156px;
     height: 130px;
+  }
+  .site-list li .delete {
+    visibility: visible;
   }
 }
