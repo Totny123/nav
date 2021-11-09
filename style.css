@@ -18,7 +18,11 @@ a {
   text-decoration: none;
   color: #1d1d1f;
 }
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   background-color: #eee;
   color: #1d1d1f;
   background-attachment: fixed;

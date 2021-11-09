@@ -36,6 +36,12 @@ function deleteSite(index) {
   localStorage.setItem("hashMap", JSON.stringify(siteArr));
   render();
 }
+//改变网页背景，只在PC端进行修改
+function changeBgImg() {
+  if (!navigator.userAgent.match(/mobile/i)) {
+    $("body").css("background-image", `url(${bgImgUrl})`);
+  }
+}
 //监听新增网站的点击
 $(".add-wrapper").on("click", () => {
   let reg =
@@ -60,11 +66,40 @@ $(".add-wrapper").on("click", () => {
   localStorage.setItem("hashMap", JSON.stringify(siteArr));
   render();
 });
-//改变网页背景，只在PC端进行修改
-function changeBgImg() {
-  if (!navigator.userAgent.match(/mobile/i)) {
-    $("body").css("background-image", `url(${bgImgUrl})`);
+//PC监听body的双击,进行背景修改。
+$("body").dblclick((e) => {
+  if (e.target === e.currentTarget) {
+    let reg =
+      /^(?:(http|https):\/\/)?((?:[\w-]+\.)+[a-z0-9]+)((?:\/[^/?#]*)+)?(\?[^#]+)?(#.+)?$/i;
+    let url = "";
+    let message = "请输入背景图片URL！";
+    while (1) {
+      url = window.prompt(message);
+      if (url === null) {
+        return;
+      }
+      if (url.indexOf("https://") === -1 && url.indexOf("http://")) {
+        url = "https://" + url;
+      }
+      if (reg.test(url)) {
+        break;
+      } else {
+        message = "输入URL格式错误，请重新输入！";
+      }
+    }
+    bgImgUrl = url;
+    localStorage.setItem("bgImgUrl", JSON.stringify(bgImgUrl));
+    changeBgImg();
   }
-}
+});
 render();
 changeBgImg();
+//判断是否第一次进入该网站。
+if (!localStorage.getItem("first")) {
+  if (!navigator.userAgent.match(/mobile/i)) {
+    setTimeout(() => {
+      alert("友情提示：双击背景图片可进行背景修改！");
+      localStorage.setItem("first", 1);
+    }, 1000);
+  }
+}
