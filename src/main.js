@@ -98,10 +98,10 @@ $("body").dblclick((e) => {
 //监听键盘事件
 $(document).keydown((e) => {
   let key = e.key.toLowerCase();
-  siteArr.forEach((item) => {
+  siteArr.some((item) => {
     if (item.favicon.toLowerCase() === key) {
       window.location.href = item.url;
-      return;
+      return true;
     }
   });
 });
