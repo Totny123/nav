@@ -121,6 +121,9 @@ function simplifyUrl(url) {
 }
 //移除某个网站
 function deleteSite(index) {
+  if (index === -1) {
+    return;
+  }
   siteArr.splice(index, 1);
   localStorage.setItem("hashMap", JSON.stringify(siteArr));
   render();
@@ -200,6 +203,6 @@ if (!localStorage.getItem("first")) {
   }
 }
 //parcel打包时忽略该函数bug。hack方法解决。百度实在找不到。
-console.log(deleteSite);
+deleteSite(-1);
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.1457b2e3.map
+//# sourceMappingURL=main.f6ae8f57.map
