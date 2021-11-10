@@ -199,5 +199,7 @@ if (!localStorage.getItem("first")) {
     }, 1000);
   }
 }
+//parcel打包时忽略该函数bug。hack方法解决。百度实在找不到。
+console.log(deleteSite);
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.c1a63170.map
+//# sourceMappingURL=main.1457b2e3.map
