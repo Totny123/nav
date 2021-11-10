@@ -97,10 +97,13 @@ $("body").dblclick((e) => {
 });
 //监听键盘事件
 $(document).keydown((e) => {
+  if (e.target.tagName.toLowerCase() === "input") {
+    return;
+  }
   let key = e.key.toLowerCase();
   siteArr.some((item) => {
     if (item.favicon.toLowerCase() === key) {
-      window.location.href = item.url;
+      window.open(item.url);
       return true;
     }
   });
