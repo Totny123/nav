@@ -101,6 +101,7 @@ $(document).keydown((e) => {
   siteArr.forEach((item) => {
     if (item.favicon.toLowerCase() === key) {
       window.location.href = item.url;
+      return;
     }
   });
 });
