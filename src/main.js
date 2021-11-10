@@ -119,5 +119,3 @@ if (!localStorage.getItem("first")) {
     }, 1000);
   }
 }
-//parcel打包时忽略该函数bug。hack方法解决。百度实在找不到。
-deleteSite(-1);
