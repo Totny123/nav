@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+input {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #1d1d1f;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-color: #eee;
+  color: #1d1d1f;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.search-header {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 100px;
+}
+.search-header input {
+  width: 350px;
+  height: 40px;
+  margin-right: 15px;
+  padding: 0 15px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.search-header button {
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
+  border: 1px solid #0099ff;
+  outline: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #0099ff;
+  vertical-align: bottom;
+}
+.search-header button:hover {
+  background-color: #0088ff;
+}
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.site-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -25px;
+}
+.site-list li {
+  position: relative;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+.site-list li:hover .delete {
+  visibility: visible;
+}
+.site-list li .delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+}
+.site-list li .delete:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 150px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+.site-wrapper .favicon {
+  font-size: 50px;
+}
+.site-wrapper .link {
+  color: inherit;
+}
+.add-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+}
+.add-wrapper:hover {
+  cursor: pointer;
+}
+.add-wrapper .icon {
+  font-size: 50px;
+}
+.add-wrapper .text {
+  margin-top: 12px;
+}
+@media screen and (max-width: 500px) {
+  body {
+    background-color: #eee;
+    color: #1d1d1f;
+    padding: 10px;
+  }
+  .search-header {
+    display: block;
+    margin: 15px 0 25px;
+  }
+  .search-header input {
+    width: 220px;
+    margin: 0;
+    padding: 0 10px;
+  }
+  .search-header button {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
+  .site-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .site-wrapper {
+    width: 156px;
+    height: 130px;
+  }
+  .add-wrapper {
+    width: 156px;
+    height: 130px;
+  }
+  .site-list li .delete {
+    visibility: visible;
+  }
+}

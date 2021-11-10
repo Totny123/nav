@@ -1,0 +1,12 @@
+{
+  "name": "nav",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Totny123/nav.git",
+  "author": "totny <24455370@qq.com>",
+  "license": "MIT",
+  "scripts":{
+    "build":"rm -rf dist && parcel build src/index.html --no-minify --public-url ./",
+    "dev":"parcel src/index.html"
+  }
+}

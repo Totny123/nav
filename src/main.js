@@ -92,13 +92,26 @@ $("body").dblclick((e) => {
     changeBgImg();
   }
 });
+//监听键盘事件
+$(document).keydown((e) => {
+  let key = e.key.toLowerCase();
+  siteArr.forEach((item) => {
+    if (item.favicon.toLowerCase() === key) {
+      window.location.href = item.url;
+    }
+  });
+});
 render();
 changeBgImg();
 //判断是否第一次进入该网站。
 if (!localStorage.getItem("first")) {
   if (!navigator.userAgent.match(/mobile/i)) {
     setTimeout(() => {
-      alert("友情提示：双击背景图片可进行背景修改！");
+      alert(`
+      友情提示：
+            双击背景图片可进行背景修改！
+            键盘按下网站对应首字母可快捷跳转！
+            `);
       localStorage.setItem("first", 1);
     }, 1000);
   }
